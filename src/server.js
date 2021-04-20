@@ -25,7 +25,10 @@ const apiKey = process.env.SECRET || "verysecret";
 const port = process.env.PORT || 3001;
 
 // kdb connection
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // middleware for checking authorization
 app.use("/api/1", (req, res, next) => {
